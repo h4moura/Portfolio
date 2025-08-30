@@ -237,7 +237,7 @@ h1 {
 }
 
 .navegacao-mobile {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
@@ -315,6 +315,9 @@ h1 {
     display: none;
   }
 
+  .navegacao-mobile{
+    display: flex;
+  }
   .menu-mobile {
     position: absolute;
     top: 60px;
