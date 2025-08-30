@@ -242,9 +242,8 @@ h1 {
   align-items: center;
   padding: 15px 20px;
   background: rgba(15, 23, 42, 0.8);
-  color: var(--claro);
+  color: #fff;
   position: relative;
-  z-index: 100;
 }
 
 .logo-mobile {
@@ -268,9 +267,6 @@ h1 {
   color: var(--secundaria);
 }
 
-.navegacao-mobile{
-  display: none;
-}
 /* Botão hamburguer */
 .menu-toggle-mobile {
   display: none;
@@ -327,9 +323,10 @@ h1 {
     width: 200px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 3rem;
     padding: 15px;
     display: none;
+    z-index: 100;
   }
 
   .menu-mobile.show-mobile {
@@ -339,6 +336,7 @@ h1 {
   .menu-toggle-mobile {
     display: block;
   }
+}
   .btn-topo {
     width: 40px;
     height: 40px;
