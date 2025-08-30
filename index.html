@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/styles.css" />
+    <title>Portfolio</title>
+  </head>
+
+  <body>
+    <div class="particulas"></div>
+    <nav class="navegacao">
+      <ul class="menu">
+        <li>
+          <a href="#inicio" class="menu-link">Inicio</a>
+        </li>
+        <li>
+          <a href="#sobre" class="menu-link">Sobre</a>
+        </li>
+        <li>
+          <a href="#projetos" class="menu-link">Projetos</a>
+        </li>
+        <li>
+          <a href="#contatos" class="menu-link">Contato</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <nav class="navegacao-mobile">
+      <div class="logo-mobile"></div>
+
+      <!-- Botão hamburguer -->
+      <div class="menu-toggle-mobile" id="menu-toggle-mobile">☰</div>
+
+      <!-- Menu -->
+      <ul class="menu-mobile" id="menu-mobile">
+        <li><a href="#inicio" class="menu-link-mobile">Início</a></li>
+        <li><a href="#sobre" class="menu-link-mobile">Sobre</a></li>
+        <li><a href="#projetos" class="menu-link-mobile">Projetos</a></li>
+        <li><a href="#contatos" class="menu-link-mobile">Contato</a></li>
+      </ul>
+    </nav>
+    <!-- Menu Mobile -->
+    <header id="inicio" class="cabecalho">
+      <img src="src/img/image.png" alt="" class="foto-perfil" />
+      <h1>Halyson Moura</h1>
+      <p>Engenheiro de Software</p>
+    </header>
+
+    <main>
+      <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">💻 Sobre Mim</h2>
+        <div class="sobre-caixa">
+          <p>
+            Sou desenvolvedor Front-end com experiência em criação de interfaces
+            modernas, responsivas e funcionais. Tenho domínio em HTML, CSS e
+            JavaScript, além de noções de MySQL e experiência com integração de
+            APIs. Busco sempre unir design intuitivo com boas práticas de
+            desenvolvimento, garantindo a melhor experiência para o usuário.
+          </p>
+        </div>
+      </section>
+
+      <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meu Projetos</h2>
+        <div class="projetos-caixas">
+          <div class="projetos-card">
+            <img
+              src="src/img/image1.png"
+              alt="Projeto 1"
+              class="projetos-imagem"
+            />
+            <div class="caixa-textos-projeto">
+              <h3 class="info-projetos">landing page</h3>
+              <p class="paragrafo-projetos">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+                blanditiis illo officiis. Quaerat quam veritatis aut aliquid ut
+                nisi suscipit dolorum fuga maiores quos, a doloribus. Beatae
+                numquam officia quod!
+              </p>
+            </div>
+          </div>
+          <div class="projetos-card">
+            <img
+              src="src/img/image2.png"
+              alt="Projeto 2"
+              class="projetos-imagem"
+            />
+            <div class="caixa-textos-projeto">
+              <h3 class="info-projetos">Blog</h3>
+              <p class="paragrafo-projetos">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+                blanditiis illo officiis. Quaerat quam veritatis aut aliquid ut
+                nisi suscipit dolorum fuga maiores quos, a doloribus. Beatae
+                numquam officia quod!
+              </p>
+            </div>
+          </div>
+          <div class="projetos-card">
+            <img
+              src="src/img/image3.png"
+              alt="Projeto 3"
+              class="projetos-imagem"
+            />
+            <div class="caixa-textos-projeto">
+              <h3 class="info-projetos">Calculadora</h3>
+              <p class="paragrafo-projetos">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+                blanditiis illo officiis. Quaerat quam veritatis aut aliquid ut
+                nisi suscipit dolorum fuga maiores quos, a doloribus. Beatae
+                numquam officia quod!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contatos" class="contato">
+        <h2 class="contatos-titulo">Entre em contato</h2>
+        <form
+          id="formulario"
+          class="formulario-contato"
+          onsubmit="enviarWhats(event)"
+        >
+          <div class="grupo-form">
+            <input placeholder="Nome" class="campo-form" id="nome" />
+          </div>
+          <div class="grupo-form">
+            <textarea
+              class="campo-form"
+              placeholder="Digite sua Mensagem"
+              id="mensagem"
+              rows="7"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="botao-form">Enviar Whatsapp</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <h3>&copy;Halyson Moura 2025</h3>
+    </footer>
+    <button id="btn-topo" class="btn-topo">↑</button>
+    <script src="src/javascript/script.js"></script>
+  </body>
+</html>
