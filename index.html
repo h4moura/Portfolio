@@ -1,148 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/styles/styles.css" />
-    <title>Portfolio</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-Lima Studio | Dev & Social Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS --- */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #38bdf8; /* Azul Tech */
+            --secondary: #ec4899; /* Rosa Social Media */
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
 
-  <body>
-    <div class="particulas"></div>
-    <nav class="navegacao">
-      <ul class="menu">
-        <li>
-          <a href="#inicio" class="menu-link">Inicio</a>
-        </li>
-        <li>
-          <a href="#sobre" class="menu-link">Sobre</a>
-        </li>
-        <li>
-          <a href="#projetos" class="menu-link">Projetos</a>
-        </li>
-        <li>
-          <a href="#contatos" class="menu-link">Contato</a>
-        </li>
-      </ul>
-    </nav>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
 
-    <!-- Menu Mobile -->
-    <nav class="navegacao-mobile">
-      <div class="logo-mobile"></div>
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-      <!-- Botão hamburguer -->
-      <div class="menu-toggle-mobile" id="menu-toggle-mobile">☰</div>
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .logo span { color: var(--primary); }
+        .logo span.social { color: var(--secondary); }
 
-      <!-- Menu -->
-      <ul class="menu-mobile" id="menu-mobile">
-        <li><a href="#inicio" class="menu-link-mobile">Início</a></li>
-        <li><a href="#sobre" class="menu-link-mobile">Sobre</a></li>
-        <li><a href="#projetos" class="menu-link-mobile">Projetos</a></li>
-        <li><a href="#contatos" class="menu-link-mobile">Contato</a></li>
-      </ul>
-    </nav>
-    <!-- Menu Mobile -->
-    <header id="inicio" class="cabecalho">
-      <img src="src/img/image.png" alt="" class="foto-perfil" />
-      <h1>Halyson Moura</h1>
-      <p>Engenheiro de Software</p>
+        nav ul { display: flex; gap: 30px; }
+        nav a:hover { color: var(--primary); }
+
+        .btn-cta {
+            padding: 10px 25px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at top right, rgba(56,189,248,0.1), transparent);
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero h1 .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+
+        /* --- SERVIÇOS --- */
+        section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section-title span { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card i { font-size: 3rem; margin-bottom: 20px; color: var(--primary); }
+        .card.social i { color: var(--secondary); } /* Cor diferente para social */
+        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+        .card p { color: var(--text-muted); }
+
+        /* --- PORTFOLIO --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .project {
+            height: 300px;
+            background: #2d3748;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
+        .project:hover img { opacity: 0.3; transform: scale(1.1); }
+        
+        .project-info {
+            position: absolute;
+            text-align: center;
+            opacity: 0;
+            transition: 0.3s;
+            transform: translateY(20px);
+        }
+        
+        .project:hover .project-info { opacity: 1; transform: translateY(0); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #020617;
+            padding: 50px 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .social-links { margin: 20px 0; }
+        .social-links a { font-size: 1.5rem; margin: 0 15px; color: var(--text-muted); }
+        .social-links a:hover { color: var(--primary); }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { display: none; } /* Menu simplificado para demo */
+            header { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">H-Lima<span>.Dev</span> & <span class="social">Social</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">O que faço</a></li>
+                <li><a href="#portfolio">Projetos</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/seunumerodewhatsapp" class="btn-cta">Fale Comigo</a>
     </header>
 
-    <main>
-      <section id="sobre" class="sobre">
-        <h2 class="sobre-titulo">💻 Sobre Mim</h2>
-        <div class="sobre-caixa">
-          <p>
-            Sou desenvolvedor Front-end com experiência em criação de interfaces
-            modernas, responsivas e funcionais. Tenho domínio em HTML, CSS e
-            JavaScript, além de noções de MySQL e experiência com integração de
-            APIs. Busco sempre unir design intuitivo com boas práticas de
-            desenvolvimento, garantindo a melhor experiência para o usuário.
-          </p>
+    <section class="hero" id="home">
+        <p>Olá, eu sou Halyson Lima</p>
+        <h1>
+            Desenvolvo Sites <br>
+            <span class="gradient-text">Gerencio Marcas</span>
+        </h1>
+        <p>A união perfeita entre tecnologia e estratégia. Eu construo sua presença online e trago o público certo até ela.</p>
+        <div style="display: flex; gap: 15px;">
+            <a href="#portfolio" class="btn-cta" style="background: transparent; border: 2px solid var(--primary);">Ver Portfolio</a>
+            <a href="#contato" class="btn-cta">Orçamento</a>
         </div>
-      </section>
+    </section>
 
-      <section id="projetos" class="projetos">
-        <h2 class="projetos-titulo">Meu Projetos</h2>
-        <div class="projetos-caixas">
-          <div class="projetos-card">
-            <img
-              src="src/img/image1.png"
-              alt="Projeto 1"
-              class="projetos-imagem"
-            />
-            <div class="caixa-textos-projeto">
-              <h3 class="info-projetos">landing page</h3>
-              <p class="paragrafo-projetos">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                blanditiis illo officiis. Quaerat quam veritatis aut aliquid ut
-                nisi suscipit dolorum fuga maiores quos, a doloribus. Beatae
-                numquam officia quod!
-              </p>
-            </div>
-          </div>
-          <div class="projetos-card">
-            <img
-              src="src/img/image2.png"
-              alt="Projeto 2"
-              class="projetos-imagem"
-            />
-            <div class="caixa-textos-projeto">
-              <h3 class="info-projetos">Blog</h3>
-              <p class="paragrafo-projetos">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                blanditiis illo officiis. Quaerat quam veritatis aut aliquid ut
-                nisi suscipit dolorum fuga maiores quos, a doloribus. Beatae
-                numquam officia quod!
-              </p>
-            </div>
-          </div>
-          <div class="projetos-card">
-            <img
-              src="src/img/image3.png"
-              alt="Projeto 3"
-              class="projetos-imagem"
-            />
-            <div class="caixa-textos-projeto">
-              <h3 class="info-projetos">Calculadora</h3>
-              <p class="paragrafo-projetos">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                blanditiis illo officiis. Quaerat quam veritatis aut aliquid ut
-                nisi suscipit dolorum fuga maiores quos, a doloribus. Beatae
-                numquam officia quod!
-              </p>
-            </div>
-          </div>
+    <section id="servicos">
+        <div class="section-title">
+            <span>Minhas Skills</span>
+            <h2>Como posso te ajudar?</h2>
         </div>
-      </section>
 
-      <section id="contatos" class="contato">
-        <h2 class="contatos-titulo">Entre em contato</h2>
-        <form
-          id="formulario"
-          class="formulario-contato"
-          onsubmit="enviarWhats(event)"
-        >
-          <div class="grupo-form">
-            <input placeholder="Nome" class="campo-form" id="nome" />
-          </div>
-          <div class="grupo-form">
-            <textarea
-              class="campo-form"
-              placeholder="Digite sua Mensagem"
-              id="mensagem"
-              rows="7"
-            ></textarea>
-          </div>
+        <div class="services-grid">
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Criação de sites responsivos, Landing Pages de alta conversão, E-commerces e otimização de velocidade (SEO técnico).</p>
+            </div>
 
-          <button type="submit" class="botao-form">Enviar Whatsapp</button>
-        </form>
-      </section>
-    </main>
-    <footer>
-      <h3>&copy;Halyson Moura 2025</h3>
+            <div class="card social">
+                <i class="fas fa-hashtag"></i>
+                <h3>Social Media</h3>
+                <p>Gestão de Instagram e LinkedIn, criação de calendário editorial, design de posts e estratégia de engajamento.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-rocket"></i>
+                <h3>Estratégia Digital</h3>
+                <p>Unindo o site com as redes sociais para criar um funil de vendas que transforma seguidores em clientes reais.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" style="background-color: #162032;">
+        <div class="section-title">
+            <span>Trabalhos Recentes</span>
+            <h2>Portfolio Híbrido</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="project">
+                <img src="imobiliaria/img/imobiliaria.png" alt="Site Imobiliária">
+                <div class="project-info">
+                    <h3>Landing Page Imobiliária</h3>
+                    <p>Desenvolvimento Web</p>
+                </div>
+            </div>
+
+            <div class="project">
+                <img src="https://source.unsplash.com/random/800x600/?instagram,phone" alt="Gestão Instagram">
+                <div class="project-info">
+                    <h3>Gestão de Redes - Clínica</h3>
+                    <p>Social Media & Design</p>
+                </div>
+            </div>
+
+            <div class="project">
+                <img src="e-comerce/img/e-comerce.png" alt="E-commerce">
+                <div class="project-info">
+                    <h3>E-commerce de Moda</h3>
+                    <p>Shopify / Wordpress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="section-title">
+            <h2>Vamos criar algo incrível?</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">Halyson Silva Lima Moura - H-Lima Studio</p>
+        </div>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #475569;">&copy; 2024 H-Lima Studio. Todos os direitos reservados.</p>
     </footer>
-    <button id="btn-topo" class="btn-topo">↑</button>
-    <script src="src/javascript/script.js"></script>
-  </body>
+
+</body>
 </html>
